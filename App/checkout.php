@@ -151,16 +151,11 @@
             </div>
 
             <div class="mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <label for="endereço">Endereço</label>
+              <input type="text" name="endereco" class="form-control" id="endereço" placeholder="Rua Fulano de Tal" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
             </div>
 
             <div class="row">
