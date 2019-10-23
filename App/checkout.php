@@ -173,13 +173,16 @@
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Choose...</option>
-                  <option>California</option>
+                <label for="state">Estado</label>
+                <select class="custom-select d-block w-100" name="estado" id="idestado" required>
+                  <option value="">Selecione...</option>
+                  <option>RN</option>
+                  <option>PB</option>
+                  <option>RJ</option>
+                  <option>SP</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Por favor insira um país válido.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
