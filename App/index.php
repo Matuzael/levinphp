@@ -42,7 +42,7 @@ session_start();
             <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php"> <img src="imgs/perfil.png" /> 
+            <a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> 
             <?php if(isset($_SESSION['logado'])):
               echo "Perfil";
             else:
