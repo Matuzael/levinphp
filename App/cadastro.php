@@ -20,7 +20,7 @@
 
   <body class="container text-center">
   
-    <form action="controllers/create-usuario.php" method="POST"> 
+    <form action="controllers/createUsuario.php" method="POST"> 
     
     <a href="index.php" style="color:black">
     <img class="mb-4" src="imgs/wine.png" alt="" width="72" height="72"/>
@@ -35,9 +35,17 @@
     </div>
   <div class="form-group col-md-6">
       <label for="input-sobrenome">Sobrenome</label>
-      <input name="sobrenome" type="email" class="form-control" id="input-sobrenome" placeholder="Sobrenome">
+      <input name="sobrenome" type="text" class="form-control" id="input-sobrenome" placeholder="Sobrenome">
    </div>
-    
+
+  <div class="form-group col-md-6">
+      <label for="input-nome">Senha</label>
+      <input name="senha" type="text" class="form-control" id="input-nome" placeholder="Senha">
+    </div>
+  <div class="form-group col-md-6">
+      <label for="input-sobrenome">Confirmar Senha</label>
+      <input name="confirmar-senha" type="text" class="form-control" id="input-sobrenome" placeholder="Digite sua senha novamente">
+   </div>
 
     <div class="form-group col-md-12">
       <label for="input-email">Email</label>

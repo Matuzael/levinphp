@@ -23,15 +23,15 @@
 
   <body class="text-center">
 
-    <form class="form-signin">
+    <form class="form-signin" method="POST" action="controllers/loginVerification.php">
     <a style="color:black" href="index.php">
       <img class="mb-4" src="imgs/wine.png" alt="" width="72" height="72" >
      <h5 class="logo"><strong>Le Vin</strong></h5></a>
       <h1 class="h3 mb-3 font-weight-normal">Faça Login</h1>
       <label for="inputEmail" class="sr-only">Email</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus  name="email">
       <label for="inputPassword" class="sr-only">Senha</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="senha">
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me

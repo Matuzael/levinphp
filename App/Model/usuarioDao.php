@@ -6,16 +6,17 @@ class UsuarioDao{
 
     public function create(Usuario $u){
 
-        $sql = 'INSERT INTO usuarios(nome,sobrenome,email,endereco,cidade,estado,cep) VALUES (?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO usuarios(nome,sobrenome,email,senha, endereco,cidade,estado,cep) VALUES (?,?,?,?,?,?,?,?)';
         
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $u->getNome());
         $stmt->bindValue(2, $u->getSobrenome());
         $stmt->bindValue(3, $u->getEmail());
-        $stmt->bindValue(3, $u->getEndereco());
-        $stmt->bindValue(3, $u->getCidade());
-        $stmt->bindValue(3, $u->getEstado());
-        $stmt->bindValue(3, $u->getCep());
+        $stmt->bindValue(4, $u->getSenha());
+        $stmt->bindValue(5, $u->getEndereco());
+        $stmt->bindValue(6, $u->getCidade());
+        $stmt->bindValue(7, $u->getEstado());
+        $stmt->bindValue(8, $u->getCep());
 
         $stmt->execute();
 
@@ -41,17 +42,17 @@ class UsuarioDao{
     }
 
     public function update(Usuario $u){
-        $sql = 'UPDATE usuarios set nome=?, sobrenome=?, email=?, endereco=?, cidade=?, estado=?, cep=? WHERE id=? ';
+        $sql = 'UPDATE usuarios set nome=?, sobrenome=?, email=?, senha=?, endereco=?, cidade=?, estado=?, cep=? WHERE id=? ';
 
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $u->getNome());
         $stmt->bindValue(2, $u->getSobrenome());
         $stmt->bindValue(3, $u->getEmail());
-        $stmt->bindValue(3, $u->getEndereco());
-        $stmt->bindValue(3, $u->getCidade());
-        $stmt->bindValue(3, $u->getEstado());
-        $stmt->bindValue(3, $u->getCep());
-
+        $stmt->bindValue(4, $u->getSenha());
+        $stmt->bindValue(5, $u->getEndereco());
+        $stmt->bindValue(6, $u->getCidade());
+        $stmt->bindValue(7, $u->getEstado());
+        $stmt->bindValue(8, $u->getCep());
         $stmt->execute();
     }
 

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,12 @@
             <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php"> <img src="imgs/perfil.png" /> Login  </a>
+            <a class="nav-link" href="login.php"> <img src="imgs/perfil.png" /> 
+            <?php if(isset($_SESSION['logado'])):
+              echo "Perfil";
+            else:
+              echo "Login";
+            endif; ?> </a>
           </li>
         </ul>
       </div>

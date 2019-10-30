@@ -2,7 +2,7 @@
 namespace App\Model; 
 
 class Usuario{
-    private $id, $nome, $sobrenome, $email, $endereco, $cidade, $estado, $cep;
+    private $id, $nome, $sobrenome, $email, $senha, $endereco, $cidade, $estado, $cep;
 
     public function getId(){
         return $this->id;
@@ -36,6 +36,15 @@ class Usuario{
     public function setEmail($email){
         $this->email = $email;
     }
+    
+    public function getSenha(){
+        return $this->senha;
+    }
+
+    public function setSenha($senha){
+        $this->senha = $senha;
+    }
+    
 
     public function getEndereco(){
         return $this->endereco;
