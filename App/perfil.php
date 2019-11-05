@@ -1,9 +1,4 @@
 <?php 
-session_start();
-
-if(!isset($_SESSION['logado'])):
-
-endif;
 ?>
 
 <!doctype html>
@@ -45,15 +40,30 @@ endif;
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+
+          <li class="nav-item active">
+            <?php 
+            session_start();
+            var_dump($_SESSION['logado']);
+            if (isset($_SESSION['logado'])):
+              echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+            else:
+              
+              echo '<a class="nav-link " href="login.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+            endif;
+            ?>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
+
+          <li class="nav-item active">
+            <?php 
+              if (isset($_SESSION['logado'])):
+                echo '<a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil</a>';
+              else:
+                echo '<a class="nav-link" href="login.php"> <img src="imgs/perfil.png"/> Login</a>';
+              endif;
+            ?>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil  </a>
-          </li>
+
         </ul>
       </div>
     </div>
@@ -123,12 +133,9 @@ endif;
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title"> Encerrar Sessão </h5>
-                  <a href="index.php" class="card-link">
-                  Sair
-                  <?php
-                  session_destroy();
-                  ?>
-                  </a>
+                  <a href="index.php" class="card-link"> Sair </a>
+                
+
                 </div>
               </div>
               </div>

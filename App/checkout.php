@@ -1,4 +1,8 @@
-
+<?php 
+if(!($_SESSION['logado'])):
+  header("Location: login.php");
+endif;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,7 +49,7 @@
             <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php"> <img src="imgs/perfil.png" /> Login  </a>
+            <a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil  </a>
           </li>
         </ul>
       </div>
