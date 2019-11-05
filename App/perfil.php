@@ -1,3 +1,10 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['logado'])):
+
+endif;
+?>
 
 <!doctype html>
 <html lang="en">
@@ -45,7 +52,7 @@
             <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.php"> <img src="imgs/perfil.png" /> Login  </a>
+            <a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil  </a>
           </li>
         </ul>
       </div>
@@ -111,6 +118,21 @@
                 </div>
               </div>
               </div>
+              
+              <div class="col-md-4 mb-3">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"> Encerrar Sessão </h5>
+                  <a href="index.php" class="card-link">
+                  Sair
+                  <?php
+                  session_destroy();
+                  ?>
+                  </a>
+                </div>
+              </div>
+              </div>
+                     
                      
            
       </div>

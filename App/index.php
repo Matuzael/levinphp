@@ -38,16 +38,29 @@ session_start();
               <span class="sr-only">(current)</span>
             </a>
           </li>
+
+
           <li class="nav-item active">
-            <a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>
+            <?php 
+            if (isset($_SESSION['logado'])):
+              echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+            else:
+              echo '<a class="nav-link " href="login.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+            endif;
+            ?>
+   
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> 
-            <?php if(isset($_SESSION['logado'])):
-              echo "Perfil";
-            else:
-              echo "Login";
-            endif; ?> </a>
+            <?php 
+              if (isset($_SESSION['logado'])):
+                echo '<a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil</a>';
+              else:
+                echo '<a class="nav-link" href="login.php"> <img src="imgs/perfil.png"/> Login</a>';
+              endif;
+            ?>
+           
+      
+
           </li>
         </ul>
       </div>
