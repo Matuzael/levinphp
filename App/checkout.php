@@ -1,8 +1,9 @@
 <?php 
-if(!($_SESSION['logado'])):
+if(isset($_SESSION['logado'])):
   header("Location: login.php");
 endif;
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -41,9 +42,6 @@ endif;
             <a class="nav-link" href="index.php"> <img src="imgs/homepage.png"> Home
               <span class="sr-only">(current)</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>

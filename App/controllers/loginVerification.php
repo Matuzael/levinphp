@@ -7,8 +7,6 @@ $senha = $_POST['senha'];
 $usuarioDao = new \App\Model\UsuarioDao();
 $resultado = $usuarioDao->read();
 
-$contador = 0;
-
 
 foreach($resultado as $credenciais):
     if($credenciais['email'] == $email && $credenciais['senha']==$senha):
@@ -16,6 +14,7 @@ foreach($resultado as $credenciais):
        
         session_start();
         $_SESSION['logado'] = $credenciais['nome'];
+        $_SESSION['id']  = $credenciais['id'];
         header("Location: ../index.php?sucesso"); 
     else:
 

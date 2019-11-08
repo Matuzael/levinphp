@@ -44,9 +44,13 @@
           <li class="nav-item active">
             <?php 
             session_start();
-            var_dump($_SESSION['logado']);
             if (isset($_SESSION['logado'])):
-              echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+              if($_SESSION['logado']=='admin'):
+              
+              else:
+                echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+              endif;
+              
             else:
               
               echo '<a class="nav-link " href="login.php"> <img src="imgs/checkout.png" />Carrinho </a>';
@@ -69,77 +73,120 @@
     </div>
   </nav>
 
-
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
         <h2>Sua Conta</h2>
         <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
 
-    
             <div class="row">
 
+                        
+      <?php
+      //Visão ADMIN
+        if($_SESSION['id']==1):
+         echo '<div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Usuários</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
+              <a href="lista.php" class="card-link">Listar Usuários</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Produtos</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
+              <a href="#" class="card-link">Listar Produtos</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+          
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"> Encerrar Sessão </h5>
+              <a href="./controllers/logout.php" class="card-link"> Sair </a>
             
-              <div class="col-md-4 mb-3">
 
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Seus Pedidos</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-              </div>
+            </div>
+          </div>
+          </div>';
 
-              <div class="col-md-4 mb-3">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Segurança</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Altere informações de sua conta</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-              </div>
+        else: 
+          echo
+          '<div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Seus Pedidos</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Segurança</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Altere informações de sua conta</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
 
-              <div class="col-md-4 mb-3">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Endereços</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Alterar ou definir novos endereços</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-              </div>     
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Endereços</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Alterar ou definir novos endereços</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>     
 
-              <div class="col-md-4 mb-3">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> Opões de Pagamento</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Adicionar, remover, atualizar e verificar métodos de pagamento</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-              </div>
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"> Opões de Pagamento</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Adicionar, remover, atualizar e verificar métodos de pagamento</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+          
+          <div class="col-md-4 mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"> Encerrar Sessão </h5>
+              <a href="./controllers/logout.php" class="card-link"> Sair </a>
+            
+
+            </div>
+          </div>
+          </div>';
+                 
+          
+        endif;
+
+      ?>
+            
+
               
-              <div class="col-md-4 mb-3">
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> Encerrar Sessão </h5>
-                  <a href="index.php" class="card-link"> Sair </a>
-                
-
-                </div>
-              </div>
-              </div>
-                     
                      
            
       </div>
