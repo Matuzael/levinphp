@@ -90,7 +90,7 @@
             <div class="card-body">
               <h5 class="card-title">Usuários</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
+              <p class="card-text">Remover e/ou atualizar usuários</p>
               <a href="lista.php" class="card-link">Listar Usuários</a>
               <a href="#" class="card-link">Another link</a>
             </div>
@@ -102,9 +102,9 @@
             <div class="card-body">
               <h5 class="card-title">Produtos</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
+              <p class="card-text">Cadastrar, atualizar e/ou excluir produtos</p>
+              <a href="cadastroProduto.php" class="card-link">Cadastrar Produtos</a>
               <a href="#" class="card-link">Listar Produtos</a>
-              <a href="#" class="card-link">Another link</a>
             </div>
           </div>
           </div>

@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Produto{
     
-    private $id, $nome, $foto, $valor;
+    private $id, $nome, $foto, $tipo, $valor;
 
     public function getId(){
         return $this->id;
@@ -28,6 +28,14 @@ class Produto{
 
     public function setFoto($foto){
         $this->foto = $foto;
+    }
+
+    public function getTipo(){
+        return $this->tipo;
+    }
+
+    public function setTipo($tipo){
+        $this->tipo = $tipo;
     }
 
     public function getValor(){

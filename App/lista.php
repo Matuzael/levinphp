@@ -86,10 +86,8 @@ $usuarios = $usuarioDao->read();
   </thead>
 
   <tbody>
-
 <?php 
 foreach($usuarios as $credenciais):
-    
     echo '<tr>
       <th scope="row">'.$credenciais["id"].'</th>
       <td scope="row">'. $credenciais["nome"].'</td>

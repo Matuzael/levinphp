@@ -43,7 +43,11 @@ session_start();
           <li class="nav-item active">
             <?php 
             if (isset($_SESSION['logado'])):
-              echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+              if($_SESSION['logado']=='admin'):
+              else:
+                echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
+              endif;
+              
             else:
               echo '<a class="nav-link " href="login.php"> <img src="imgs/checkout.png" />Carrinho </a>';
             endif;

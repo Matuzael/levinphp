@@ -84,6 +84,20 @@ endif;
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
+                <h6 class="my-0">Second product</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">$8</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Second product</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted">$8</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
                 <h6 class="my-0">Third item</h6>
                 <small class="text-muted">Brief description</small>
               </div>

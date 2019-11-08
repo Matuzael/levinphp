@@ -6,17 +6,13 @@ class ProdutoDAO{
 
     public function create(Produto $p){
 
-        echo "<pre>" ,var_dump($p), "</pre>";
-        
-    
-        echo '<pre>' , var_dump($p->getFoto()) , "</pre>";
-
-        $sql = 'INSERT INTO produtos(foto,nome,valor) VALUES (?,?,?)';
+        $sql = 'INSERT INTO produtos(nome,foto,tipo,valor) VALUES (?,?,?,?)';
         
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $p->getFoto());
-        $stmt->bindValue(2, $p->getNome());
-        $stmt->bindValue(3, $p->getValor());
+        $stmt->bindValue(1, $p->getNome());
+        $stmt->bindValue(2, $p->getFoto());
+        $stmt->bindValue(3, $p->getTipo());
+        $stmt->bindValue(4, $p->getValor());
 
         $stmt->execute();
 
@@ -42,13 +38,14 @@ class ProdutoDAO{
     }
 
     public function update(Produto $p){
-        $sql = 'UPDATE produtos set foto=?, nome=?, valor=? WHERE id = ? ';
+        $sql = 'UPDATE produtos set nome=?, foto=?,tipo=?,valor=? WHERE id = ? ';
 
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $p->getFoto());
-        $stmt->bindValue(2, $p->getNome());
-        $stmt->bindValue(3, $p->getValor());
-        $stmt->bindValue(4, $p->getId());
+        $stmt->bindValue(1, $p->getNome());
+        $stmt->bindValue(2, $p->getFoto());
+        $stmt->bindValue(3, $p->getTipo());
+        $stmt->bindValue(4, $p->getValor());
+        $stmt->bindVaue(5, $p->getId());
 
         $stmt->execute();
     }

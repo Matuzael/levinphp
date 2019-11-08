@@ -36,7 +36,7 @@
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-        <label >Não possui uma conta? <a href="cadastro.php" style="color:red"> Cadastre-se!</a></label>
+        <label >Não possui uma conta? <a href="cadastroUsuario.php" style="color:red"> Cadastre-se!</a></label>
       </div>
       <button class="btn btn-lg btn-danger btn-block" type="submit">Entrar</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

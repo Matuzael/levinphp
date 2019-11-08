@@ -80,10 +80,7 @@
   </div>
   <div class="form-group">
     
-  </div>
-
-
-      
+  </div>      
       <div class="checkbox mb-3">
        
         <label >Já possui uma conta? <a href="login.php" style="color:red"> Faça login!</a></label>
