@@ -1,12 +1,12 @@
 <?php 
 
 require_once "../../vendor/autoload.php";
-$usuarioDao = new \App\Model\UsuarioDao();
+$produtoDao = new \App\Model\ProdutoDao();
 $id = $_GET['id'];
 
-$usuarioDao->delete($id);
+$produtoDao->delete($id);
 
-header('Location: ../listaUsuarios.php')
+header('Location: ../listaProdutos.php')
 //$usuarios = $usuarioDao->delete();
 
 //header("Location: ../lista.php");

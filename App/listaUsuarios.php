@@ -89,7 +89,7 @@ $usuarios = $usuarioDao->read();
 <?php 
 foreach($usuarios as $credenciais):
     echo '<tr>
-      <th scope="row">'.$credenciais["id"].'</th>
+      <th scope="row">'.$credenciais["idUsuario"].'</th>
       <td scope="row">'. $credenciais["nome"].'</td>
       <td scope="row">'. $credenciais["sobrenome"].'</td>
       <td scope="row">'. $credenciais["email"].'</td>
@@ -99,7 +99,7 @@ foreach($usuarios as $credenciais):
       <td scope="row">'. $credenciais["estado"].'</td>
       <td scope="row">'. $credenciais["cep"].'</td>
       <td scope="row"> <a href=controllers/removerUsuario.php?id=';
-        echo $credenciais['id'];
+        echo $credenciais['idUsuario'];
       echo'> <img src="imgs/remover2.png"/></a> <img src="imgs/atualizar.png"/> </td>
     </tr>';
 

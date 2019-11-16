@@ -104,7 +104,7 @@
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Cadastrar, atualizar e/ou excluir produtos</p>
               <a href="cadastroProduto.php" class="card-link">Cadastrar Produtos</a>
-              <a href="#" class="card-link">Listar Produtos</a>
+              <a href="listaProdutos.php" class="card-link">Listar Produtos</a>
             </div>
           </div>
           </div>
