@@ -20,52 +20,55 @@
 
   <body class="container text-center">
   
-    <form action="controllers/createProduto.php" method="POST"> 
+    <form action="controllers/createMetodoPagmt.php" method="POST"> 
     
     <a href="index.php" style="color:black">
     <img class="mb-4" src="imgs/wine.png" alt="" width="72" height="72"/>
      <h5><strong>Le Vin</strong></h5> </a>
-    <h1  style="padding:30px;" class="h1 mb-3 font-weight-bold">Cadastro de Produtos</h1>  
-     
+    <h1  style="padding:30px;" class="h1 mb-3 font-weight-bold">Cadastrar Modo de Pagamento</h1>  
+      
   <div class="form-row">
-
-  <div class="form-group col-md-6">
-      <label for="input-nome">Nome</label>
-      <input name="nome" type="text" class="form-control" id="input-nome" placeholder="Nome">
-    </div>
-
-    <div class="form-group col-md-6">
+  
+  <div class="form-group col-md-12">
       <label for="input-tipo">Tipo</label>
       <select name="tipo" id="input-tipo" class="form-control">
-        <option  selected>Escolha</option>
-        <option>Vinho</option>
-        <option>Cerveja</option>
-        <option>XXXXX</option>
+        <option  selected >Escolha</option>
+        <option value="credito">Cartão de Crédito</option>
+        <option value="debito">Cartão de Débito</option>
       </select>
+    </div>   
+  </div>
+
+  <div class="form-row" id="op1">
+  <div class="form-group col-md-8">
+      <label for="input-foto">Nome no Cartão</label>
+      <input name="nomeCartao" type="text" class="form-control" id="input-foto" placeholder="">
     </div>
 
-    
-  </div>
+    <div class="form-group col-md-4">
+      <label for="input-foto">Validade</label>
+      <input name="validade" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>    
+  </div>   
+
+  <div class="form-row" id="op2">
   
-
-  <div class="form-row">
-
-    <div class="form-group col-md-6">
-      <label for="input-valor">Valor</label>
-      <input name="valor" type="text" class="form-control" id="input-valor">
+  <div class="form-group col-md-8">
+      <label for="input-foto">Numero do Cartão</label>
+      <input name="numCartao" type="text" class="form-control" id="input-foto" placeholder="">
     </div>
 
-    <div class="form-group col-md-6">
-      <label for="input-fotot">Foto</label>
-      <input name="foto" type="file" class="form-control" id="input-foto" placeholder="">
-    </div>
-   
 
-   
+
+    <div class="form-group col-md-4">
+      <label for="input-foto">Código de Segurança</label>
+      <input name="codCartao" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+  
   </div>
-  <div class="form-group">
-    
-  </div>      
+
+
+
       <div class="checkbox mb-3">
        
         <label >Já possui uma conta? <a href="login.php" style="color:red"> Faça login!</a></label>
@@ -75,3 +78,4 @@
     </form>
   </body>
 </html>
+

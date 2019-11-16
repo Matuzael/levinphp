@@ -14,7 +14,7 @@ foreach($resultado as $credenciais):
        
         session_start();
         $_SESSION['logado'] = $credenciais['nome'];
-        $_SESSION['id']  = $credenciais['id'];
+        $_SESSION['id']  = $credenciais['idUsuario'];
         header("Location: ../index.php?sucesso"); 
     else:
 

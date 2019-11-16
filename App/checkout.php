@@ -64,7 +64,7 @@ endif;
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
+            <span class="text-muted">Seu carrinho</span>
             <span class="badge badge-secondary badge-pill">5</span>
           </h4>
           <ul class="list-group mb-3">
@@ -126,7 +126,7 @@ endif;
           </form>
         </div>
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Billing address</h4>
+          <h4 class="mb-3">Selecione as informações</h4>
           <form class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">

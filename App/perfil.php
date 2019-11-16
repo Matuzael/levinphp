@@ -91,7 +91,7 @@
               <h5 class="card-title">Usuários</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Remover e/ou atualizar usuários</p>
-              <a href="lista.php" class="card-link">Listar Usuários</a>
+              <a href="listaUsuarios.php" class="card-link">Listar Usuários</a>
               <a href="#" class="card-link">Another link</a>
             </div>
           </div>
@@ -121,6 +121,7 @@
           </div>';
 
         else: 
+          //Visão Usuário normal
           echo
           '<div class="col-md-4 mb-3">
           <div class="card" style="width: 18rem;">
@@ -160,11 +161,10 @@
           <div class="col-md-4 mb-3">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title"> Opões de Pagamento</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <h5 class="card-title"> Opções de Pagamento</h5>
               <p class="card-text">Adicionar, remover, atualizar e verificar métodos de pagamento</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="cadastroMetodoPagmt.php" class="card-link">Cadastrar Pagamento</a>
+              <a href="cadastroMetodoPagmt.php" class="card-link">Ver métodos cadastrados</a>
             </div>
           </div>
           </div>

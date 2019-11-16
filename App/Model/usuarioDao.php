@@ -42,7 +42,7 @@ class UsuarioDao{
     }
 
     public function update(Usuario $u){
-        $sql = 'UPDATE usuarios set nome=?, sobrenome=?, email=?, senha=?, endereco=?, cidade=?, estado=?, cep=? WHERE id=? ';
+        $sql = 'UPDATE usuarios set nome=?, sobrenome=?, email=?, senha=?, endereco=?, cidade=?, estado=?, cep=? WHERE idUsuario=? ';
 
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $u->getNome());
@@ -53,15 +53,16 @@ class UsuarioDao{
         $stmt->bindValue(6, $u->getCidade());
         $stmt->bindValue(7, $u->getEstado());
         $stmt->bindValue(8, $u->getCep());
+        $stmt->bindValue(9,$u->getidUsuario());
         $stmt->execute();
     }
 
-    public function delete($id){
+    public function delete($idUsuario){
 
-        $sql = 'DELETE FROM usuarios WHERE id=?';
+        $sql = 'DELETE FROM usuarios WHERE idUsuario=?';
 
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1,$id);
+        $stmt->bindValue(1,$idUsuario);
 
         $stmt->execute();
 

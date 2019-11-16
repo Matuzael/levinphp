@@ -2,14 +2,14 @@
 namespace App\Model; 
 
 class Usuario{
-    private $id, $nome, $sobrenome, $email, $senha, $endereco, $cidade, $estado, $cep;
+    private $idUsuario, $nome, $sobrenome, $email, $senha, $endereco, $cidade, $estado, $cep;
 
-    public function getId(){
-        return $this->id;
+    public function getidUsuario(){
+        return $this->idUsuario;
     }
 
-    public function setId($id){
-        $this->id = $id;
+    public function setId($idUsuario){
+        $this->idUsuario = $idUsuario;
     }
 
     
