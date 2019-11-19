@@ -2,6 +2,12 @@
 if(isset($_SESSION['logado'])):
   header("Location: login.php");
 endif;
+
+require_once "../vendor/autoload.php";
+$CarrinhoDao = new \App\Model\CarrinhoDao();
+$produtosCarrinho = $carrinhoDao->read();
+
+
 ?>
 
 <!doctype html>
@@ -61,60 +67,43 @@ endif;
         <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
 
-      <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Seu carrinho</span>
-            <span class="badge badge-secondary badge-pill">5</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
-              </div>
-              <span class="text-success">-$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
-            </li>
+
+      <!-- Carrinho -->
+
+            <div class="row">
+              <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted">Seu carrinho</span>
+          
+                <?php echo  '<span class="badge badge-secondary badge-pill">'.sizeof($produtos).'</span>' ?>
+                </h4>
+
+                <ul class="list-group mb-3">
+
+            <?php              
+              $valorTotal=0;
+              foreach($produtos as $credenciais):
+                echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">'.$credenciais['nome'].'</h6>
+                  <small class="text-muted">Brief description</small>
+                </div>
+                <span class="text-muted">R$'.$credenciais['valor'].'</span>
+              </li>';
+              $valorTotal += $credenciais['valor'];
+              endforeach;
+          
+            echo '<li class="list-group-item d-flex justify-content-between">
+              <span>Total (R$)</span>
+              <strong>'.$valorTotal.'</strong>
+            </li>';
+            ?>
+
           </ul>
+
+          <!-- Fim carrinho-->
+
+
 
           <form class="card p-2">
             <div class="input-group">

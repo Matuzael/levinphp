@@ -130,20 +130,29 @@ session_start();
               $produtos = $produtoDao->read();
 
         foreach($produtos as $produto):
-          echo '<div class="col-lg-4 col-md-6 mb-4">
+          echo '
+          <div class="col-lg-4 col-md-6 mb-4">
+          <form method="POST" action="controllers/adicionarCarrinho.php">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" width="60" weight="30" src=imgs/'.$produto['foto'].' alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#" style="color:red;">'.$produto['nome'].'</a>
-              </h4>
+                </h4>
+                <p>'.$produto['tipo'].'</p>
               <h5>R$'.$produto['valor'].'</h5>
             </div>
-            <button width="30"> Adicionar ao Carrinho </button>
+            <button type="submit">Adicionar ao Carrinho </button>
             <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
             </div>
-          </div>
+          </div>';
+
+          echo '<input name="nomeProduto" type="hidden" value="'.$produto['nome'].'"/>';
+          echo '<input name="valorProduto" type="hidden" value="'.$produto['valor'].'">';
+          echo '<input name="tipoProduto" type="hidden" value="'.$produto['tipo'].'"/>';
+          echo '<input name="fotoProduto" type="hidden" value="'.$produto['foto'].'"/>
+          </form>
         </div>';
             endforeach;
           ?>
