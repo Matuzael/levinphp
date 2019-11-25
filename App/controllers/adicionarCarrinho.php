@@ -12,8 +12,6 @@ $valorProduto = $_POST['valorProduto'];
 $tipoProduto = $_POST['tipoProduto'];
 $fotoProduto = $_POST['fotoProduto'];
 
-echo $nomeProduto;
-
 $carrinho->setNomeProduto($nomeProduto);
 $carrinho->setValorProduto($valorProduto);
 $carrinho->setTipoProduto($tipoProduto);
@@ -23,6 +21,7 @@ $carrinho->setIdUsuario($_SESSION['id']);
 
 $carrinhoDao->create($carrinho);
 
+header("Location: ../index.php");
 
 
 

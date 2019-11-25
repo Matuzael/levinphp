@@ -140,8 +140,8 @@
               <h5 class="card-title">Segurança</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Altere informações de sua conta</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="#" class="card-link">Altere suas informações</a>
+              <a href="#" class="card-link">Ver seus dados</a>
             </div>
           </div>
           </div>

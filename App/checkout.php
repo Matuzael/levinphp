@@ -3,10 +3,15 @@ if(isset($_SESSION['logado'])):
   header("Location: login.php");
 endif;
 
-require_once "../vendor/autoload.php";
-$CarrinhoDao = new \App\Model\CarrinhoDao();
-$produtosCarrinho = $carrinhoDao->read();
+session_start();
 
+require_once "../vendor/autoload.php";
+$carrinhoDao = new \App\Model\CarrinhoDao();
+$produtosCarrinho = $carrinhoDao->read($_SESSION['id']);
+echo $_SESSION['id'];
+
+$metodoPagamentoDao = new \App\Model\metodoPagamentoDao();
+$metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
 
 ?>
 
@@ -75,22 +80,22 @@ $produtosCarrinho = $carrinhoDao->read();
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span class="text-muted">Seu carrinho</span>
           
-                <?php echo  '<span class="badge badge-secondary badge-pill">'.sizeof($produtos).'</span>' ?>
+                <?php echo  '<span class="badge badge-secondary badge-pill">'.sizeof($produtosCarrinho).'</span>' ?>
                 </h4>
 
                 <ul class="list-group mb-3">
 
             <?php              
               $valorTotal=0;
-              foreach($produtos as $credenciais):
+              foreach($produtosCarrinho as $credenciais):
                 echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0">'.$credenciais['nome'].'</h6>
-                  <small class="text-muted">Brief description</small>
+                  <h6 class="my-0">'.$credenciais['nomeProduto'].'</h6>
+                  <small class="text-muted">'.$credenciais['tipoProduto'].'</small>
                 </div>
-                <span class="text-muted">R$'.$credenciais['valor'].'</span>
+                <span class="text-muted">R$'.$credenciais['valorProduto'].'</span>
               </li>';
-              $valorTotal += $credenciais['valor'];
+              $valorTotal += $credenciais['valorProduto'];
               endforeach;
           
             echo '<li class="list-group-item d-flex justify-content-between">
@@ -105,150 +110,113 @@ $produtosCarrinho = $carrinhoDao->read();
 
 
 
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Selecione as informações</h4>
-          <form class="needs-validation" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">Nome</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid first name is required.
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Redeem</button>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Sobrenome</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-              </div>
+              </form>
             </div>
+            <div class="col-md-8 order-md-1">
+              <h4 class="mb-3">Informe o Endereço de Envio</h4>
 
 
-            <div class="mb-3">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com">
-              <div class="invalid-feedback">
-                Insira email válido.
-              </div>
-            </div>
+              <form action="controllers/comprarProduto.php" method="POST"> 
+        
+    
+          <div class="form-row"> 
+              <div class="form-group col-md-10">
+    <label for="input-endereco">Endereço</label>
+    <input name="endereco" type="text" class="form-control" id="input-endereco" placeholder="Rua dos Bobos, nº 0
+    ">
+  </div>
 
-            <div class="mb-3">
-              <label for="endereço">Endereço</label>
-              <input type="text" name="endereco" class="form-control" id="endereço" placeholder="Rua Fulano de Tal" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
+  <div class="form-group col-md-2">
+    <label for="input-endereco">Número</label>
+    <input name="numero" type="text" class="form-control" id="input-endereco" placeholder="Rua dos Bobos, nº 0
+    ">
+  </div>
 
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">País</label>
-                <select class="custom-select d-block w-100" name="pais" id="idpais" required>
-                  <option value="">Selecione...</option>
-                  <option>Brasil</option>
-                  <option>United States</option>
-                  <option>Argentina</option>
-                  <option>Jamaica</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor insira um país válido.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">Estado</label>
-                <select class="custom-select d-block w-100" name="estado" id="idestado" required>
-                  <option value="">Selecione...</option>
-                  <option>RN</option>
-                  <option>PB</option>
-                  <option>RJ</option>
-                  <option>SP</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor insira um país válido.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
-                <div class="invalid-feedback">
-                  Zip code required.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
-            <hr class="mb-4">
+  </div>
 
-            <h4 class="mb-3">Payment</h4>
+  
+  <div class="form-row" id="op2">
+  
+  <div class="form-group col-md-5">
+      <label for="input-foto">Cidade</label>
+      <input name="cidade" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
 
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Credit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">Debit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Paypal</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                <div class="invalid-feedback">
-                  Credit card number is required
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-          </form>
+    <div class="form-group col-md-4">
+      <label for="input-foto">Estado</label>
+      <input name="estado" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+
+    <div class="form-group col-md-3">
+      <label for="input-foto">CEP</label>
+      <input name="cep" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+
+   <p> <h4 class="mb-3">Informações de Cobrança</h4> </p>
+  
+  </div>       
+      <div class="form-row">
+      
+      <div class="form-group col-md-12">
+          <label for="input-tipo">Método de Pagamento</label>
+          <select name="tipo" id="input-tipo" class="form-control">
+          <?php 
+          
+          ?>
+            <option  selected >Escolha</option>
+            <option value="credito">Cartão de Crédito</option>
+            <option value="debito">Cartão de Débito</option>
+            <option value="boleto">Cartão de Débito</option>
+
+          </select>
+        </div>   
+      </div>
+
+      
+  <div class="form-row" id="op1">
+  <div class="form-group col-md-8">
+      <label for="input-foto">Nome no Cartão</label>
+      <input name="nomeCartao" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="input-foto">Validade</label>
+      <input name="validade" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>    
+  </div>   
+
+  <div class="form-row" id="op2">
+  
+  <div class="form-group col-md-8">
+      <label for="input-foto">Numero do Cartão</label>
+      <input name="numCartao" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="input-foto">Código de Segurança</label>
+      <input name="codCartao" type="text" class="form-control" id="input-foto" placeholder="">
+    </div>
+  
+  </div>
+
+      
+
+
+
+          <div class="checkbox mb-3">
+          
+            <label >Já possui uma conta? <a href="login.php" style="color:red"> Faça login!</a></label>
+          </div>
+          <button class="btn btn-lg btn-danger btn-block" type="submit" name="cadastrar">Comprar</button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+        </form>
         </div>
       </div>
 

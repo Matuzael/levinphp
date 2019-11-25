@@ -23,10 +23,7 @@ $metodoPagamentoDao = new \App\Model\metodoPagamentoDao();
 $metodoPagamentoDao->create($metodoPagamento);
 
 
-
-echo "<pre>".var_dump($metodoPagamento)."</pre>";
-
-echo "<br".$_SESSION['id'];
+header("Location: ../perfil.php");
 
 
 

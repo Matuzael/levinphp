@@ -4,7 +4,7 @@ namespace App\Model;
 
 class metodoPagamento{
     
-    private $idPag, $idUsuario, $tipo, $nomeCartao, $numCartao, $validade, $codSeguranca;
+    private $idPag,$tipo, $nomeCartao, $numCartao, $validade, $codSeguranca;
 
     public function getIdPag(){
         return $this->$idPag;
@@ -12,14 +12,6 @@ class metodoPagamento{
 
     public function setIdPag($idPag){
         $this->idPag = $idPag;
-    }
-
-    public function getIdUsuario(){
-        return $this->idUsuario;
-    }
-
-    public function setIdUsuario($idUsuario){
-        $this->idUsuario = $idUsuario;
     }
 
     public function getTipo(){

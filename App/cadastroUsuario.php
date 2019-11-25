@@ -53,31 +53,7 @@
     </div>
     
   </div>
-  <div class="form-group">
-    <label for="input-endereco">Endereço</label>
-    <input name="endereco" type="text" class="form-control" id="input-endereco" placeholder="Rua dos Bobos, nº 0
-    ">
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="input-cidade">Cidade</label>
-      <input name="cidade" type="text" class="form-control" id="input-cidade">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="input-estado">Estado</label>
-      <select name="estado" id="input-estado" class="form-control">
-        <option  selected>Escolha</option>
-        <option>RN</option>
-        <option>SP</option>
-      </select>
-    </div>
-
-    <div class="form-group col-md-2">
-      <label for="input-cep">CEP</label>
-      <input name="cep" type="text" class="form-control" id="input-cep">
-    </div>
-  </div>
+  
   <div class="form-group">
     
   </div>      

@@ -19,11 +19,12 @@ class CarrinhoDao{
 
     }
 
-    public function read(){
+    public function read($id){
 
-        $sql = 'SELECT * FROM carrinho';
+        $sql = 'SELECT * FROM carrinho WHERE idUsuario=?';
 
         $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id);
 
         $stmt->execute();
 
