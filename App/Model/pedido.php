@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Pedido{
     
-    private $idPedido, $idUsuario, $endereco, $pagamento, $produtos;
+    private $idPedido, $idUsuario, $endereco, $pagamento;
 
     public function getIdPedido(){
         return $this->idPedido;
@@ -39,14 +39,6 @@ class Pedido{
     
     public function setPagamento($pagamento){
         $this->pagamento = $pagamento;
-    }
-
-    public function getProdutos(){
-        return $this->produtos;
-    }
-
-    public function setProdutos($produtos){
-        $this->produtos = $produtos;
     }
 
 }

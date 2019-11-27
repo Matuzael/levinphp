@@ -138,9 +138,20 @@ session_start();
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#" style="color:red;">'.$produto['nome'].'</a>
-                </h4>
-                <p>'.$produto['tipo'].'</p>
-              <h5>R$'.$produto['valor'].'</h5>
+                </h4>';
+
+                if($produto['tipo'] == "Vinho"):
+                  echo ' <small class="text badge badge-danger text-wrap">'.$produto['tipo'].'</small>';
+                elseif($produto['tipo'] == "Cerveja"):
+                  echo ' <small class="text badge badge-warning text-wrap">'.$produto['tipo'].'</small>';
+                endif;
+
+           
+
+
+
+
+              echo '<h5>R$'.$produto['valor'].'</h5>
             </div>
             <button type="submit">Adicionar ao Carrinho </button>
             <div class="card-footer">

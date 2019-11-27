@@ -77,10 +77,6 @@ $usuarios = $usuarioDao->read();
       <th scope="col">Sobrenome</th>
       <th scope="col">Email</th>
       <th scope="col">Senha</th>
-      <th scope="col">Endereco</th>
-      <th scope="col">Cidade</th>
-      <th scope="col">Estado</th>
-      <th scope="col">CEP</th>
       <th scop="col">Ações</th>
     </tr>
   </thead>
@@ -94,10 +90,6 @@ foreach($usuarios as $credenciais):
       <td scope="row">'. $credenciais["sobrenome"].'</td>
       <td scope="row">'. $credenciais["email"].'</td>
       <td scope="row">'. $credenciais["senha"].'</td>
-      <td scope="row">'. $credenciais["endereco"].'</td>
-      <td scope="row">'. $credenciais["cidade"].'</td>
-      <td scope="row">'. $credenciais["estado"].'</td>
-      <td scope="row">'. $credenciais["cep"].'</td>
       <td scope="row"> <a href=controllers/removerUsuario.php?id=';
         echo $credenciais['idUsuario'];
       echo'> <img src="imgs/remover2.png"/></a> <img src="imgs/atualizar.png"/> </td>

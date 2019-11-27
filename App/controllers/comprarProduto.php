@@ -14,27 +14,68 @@ $numCartao = $_POST['numCartao'];
 $validade = $_POST['validade'];
 $codSeguranca = $_POST['codCartao'];
 
-$metodoPagamentoDao->create();
-var_dump($metodoPagamento->ultimoPagamento());;
+$metodoPagamento->setTipo($tipo);
+$metodoPagamento->setNomeCartao($nomeCartao);
+$metodoPagamento->setNumCartao($numCartao);
+$metodoPagamento->setValidade($validade);
+$metodoPagamento->setCodSeguranca($codSeguranca);
+
+$metodoPagamentoDao->create($metodoPagamento);
+$metodoAdicionado = $metodoPagamentoDao->ultimoPagamento();
+
+/*echo '<pre>'.var_dump($metodoAdicionado).'</pre>';
+echo $metodoAdicionado[0]['idPag']; */
+
+
 
 //Salvando endereco
-$endereco = $_POST['endereco'];
+$endereco = new \App\Model\Endereco();
+$enderecoDao = new \App\Model\EnderecoDao();
+
+$endereco1 = $_POST['endereco'];
 $numero = $_POST['numero'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 $cep = $_POST['cep'];
 
+$endereco->setEndereco($endereco1);
+$endereco->setNumero($numero);
+$endereco->setCidade($cidade);
+$endereco->setEstado($estado);
+$endereco->setCep($cep);
+
+$enderecoDao->create($endereco);
+$enderecoAdicionado = $enderecoDao->ultimoEndereco();
+
+//echo '<pre>'.var_dump($enderecoAdicionado).'</pre>';
 
 
-
+//Salvando Pedido
 $pedido = new \App\Model\Pedido();
 $pedidoDao = new \App\Model\pedidoDao();
 
-$idUsuario = $_SESSION['id'];
+//Setando id (chaves estrangeiras)
+$pedido->setIdUsuario($_SESSION['id']);
+$pedido->setEndereco($enderecoAdicionado[0]['idEnd']);
+$pedido->setPagamento($metodoAdicionado[0]['idPag']);
+
+$pedidoDao->create($pedido);
+$pedidoAdicionado = $pedidoDao->ultimoPedido();
 
 
+//Salvando Produtos Vendidos
+$carrinhoDao = new \App\Model\CarrinhoDao();
+$produtosCarrinho = $carrinhoDao->read($_SESSION['id']);
 
+$produtoVendido = new \App\Model\ProdutoVendido();
+$produtoVendidoDao = new \App\Model\ProdutoVendidoDao();
 
+foreach($produtosCarrinho as $produto):
+    $produtoVendido->setProduto($produto['nomeProduto']);
+    $produtoVendido->setIdPedido($pedidoAdicionado[0]['idPedido']);
+    $produtoVendidoDao->create($produtoVendido);
+endforeach;
 
+header("Location: ../Perfil.php");
 
 ?>

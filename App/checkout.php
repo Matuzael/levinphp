@@ -8,15 +8,11 @@ session_start();
 require_once "../vendor/autoload.php";
 $carrinhoDao = new \App\Model\CarrinhoDao();
 $produtosCarrinho = $carrinhoDao->read($_SESSION['id']);
-echo $_SESSION['id'];
-
-$metodoPagamentoDao = new \App\Model\metodoPagamentoDao();
-$metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -69,7 +65,6 @@ $metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
         <h2>Finalizar Compra</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
 
 
@@ -90,9 +85,18 @@ $metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
               foreach($produtosCarrinho as $credenciais):
                 echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0">'.$credenciais['nomeProduto'].'</h6>
-                  <small class="text-muted">'.$credenciais['tipoProduto'].'</small>
-                </div>
+                  <h6 class="my-0">'.$credenciais['nomeProduto'].'</h6>';
+
+                  if($credenciais['tipoProduto'] == "Vinho"):
+                    echo ' <small class="text badge badge-danger text-wrap">'.$credenciais['tipoProduto'].'</small>';
+                  elseif($credenciais['tipoProduto'] == "Cerveja"):
+                    echo ' <small class="text badge badge-warning text-wrap">'.$credenciais['tipoProduto'].'</small>';
+                  endif;
+                  
+                    
+                
+
+                echo '</div>
                 <span class="text-muted">R$'.$credenciais['valorProduto'].'</span>
               </li>';
               $valorTotal += $credenciais['valorProduto'];
@@ -171,7 +175,7 @@ $metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
           
           ?>
             <option  selected >Escolha</option>
-            <option value="credito">Cartão de Crédito</option>
+            <option value="credito">Boleto</option>
             <option value="debito">Cartão de Débito</option>
             <option value="boleto">Cartão de Débito</option>
 
@@ -212,21 +216,17 @@ $metodosPagamento = $metodoPagamentoDao->read($_SESSION['id']);
 
           <div class="checkbox mb-3">
           
-            <label >Já possui uma conta? <a href="login.php" style="color:red"> Faça login!</a></label>
+        
           </div>
           <button class="btn btn-lg btn-danger btn-block" type="submit" name="cadastrar">Comprar</button>
-          <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+         
         </form>
         </div>
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+        <p class="mb-1">&copy; 2019-2020 Le Vin</p>
+
       </footer>
     </div>
 
