@@ -91,6 +91,8 @@ $produtosCarrinho = $carrinhoDao->read($_SESSION['id']);
                     echo ' <small class="text badge badge-danger text-wrap">'.$credenciais['tipoProduto'].'</small>';
                   elseif($credenciais['tipoProduto'] == "Cerveja"):
                     echo ' <small class="text badge badge-warning text-wrap">'.$credenciais['tipoProduto'].'</small>';
+                    elseif($credenciais['tipoProduto'] == "Cachaça"):
+                      echo ' <small class="text badge badge-success text-wrap">'.$credenciais['tipoProduto'].'</small>';
                   endif;
                   
                     

@@ -75,8 +75,8 @@
 
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
-        <h2>Sua Conta</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <?php echo '<h2>Olá, '.$_SESSION['logado'].'</h2>'; ?>
+
       </div>
 
             <div class="row">
@@ -129,7 +129,7 @@
               <h5 class="card-title">Seus Pedidos</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">Rastrear, devolver ou comprar produtos novamente</p>
-              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Listar pedidos</a>
               <a href="#" class="card-link">Another link</a>
             </div>
           </div>
@@ -146,28 +146,7 @@
           </div>
           </div>
 
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Endereços</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Alterar ou definir novos endereços</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
-          </div>     
-
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"> Opções de Pagamento</h5>
-              <p class="card-text">Adicionar, remover, atualizar e verificar métodos de pagamento</p>
-              <a href="cadastroMetodoPagmt.php" class="card-link">Cadastrar Pagamento</a>
-              <a href="cadastroMetodoPagmt.php" class="card-link">Ver métodos cadastrados</a>
-            </div>
-          </div>
-          </div>
+    
           
           <div class="col-md-4 mb-3">
           <div class="card" style="width: 18rem;">
@@ -192,12 +171,8 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Le Vin</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+        <p class="mb-1">&copy; 2019-2020 Le Vin</p>
+
       </footer>
     </div>
 

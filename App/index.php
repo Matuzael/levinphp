@@ -101,13 +101,13 @@ session_start();
           </ol>
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+              <img class="d-block img-fluid"  width="900" height="350" src="imgs/vinhos3.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+              <img class="d-block img-fluid" width="900" height="350" src="imgs/vinho2.jpg" alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+              <img class="d-block img-fluid" width="900" height="" src="imgs/vinhos5.jpg"  alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -120,7 +120,7 @@ session_start();
           </a>
         </div>
 
-        <div class="row">
+        <div class="row" href="#a">
               
               <?php 
                 
@@ -144,6 +144,8 @@ session_start();
                   echo ' <small class="text badge badge-danger text-wrap">'.$produto['tipo'].'</small>';
                 elseif($produto['tipo'] == "Cerveja"):
                   echo ' <small class="text badge badge-warning text-wrap">'.$produto['tipo'].'</small>';
+                  elseif($produto['tipo'] == "Cachaça"):
+                    echo ' <small class="text badge badge-success text-wrap">'.$produto['tipo'].'</small>';
                 endif;
 
            
@@ -152,8 +154,13 @@ session_start();
 
 
               echo '<h5>R$'.$produto['valor'].'</h5>
-            </div>
-            <button type="submit">Adicionar ao Carrinho </button>
+            </div>';
+            
+            if($_SESSION['id']!=1):
+              echo '<button type="submit">Adicionar ao Carrinho </button>';
+            endif;
+            
+            echo '
             <div class="card-footer">
               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
             </div>

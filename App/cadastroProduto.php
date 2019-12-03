@@ -40,7 +40,7 @@
         <option  selected>Escolha</option>
         <option>Vinho</option>
         <option>Cerveja</option>
-        <option>XXXXX</option>
+        <option>Cachaça</option>
       </select>
     </div>
 
