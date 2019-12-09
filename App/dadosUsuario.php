@@ -1,4 +1,7 @@
-<?php 
+<?php
+require_once "../vendor/autoload.php";
+$usuarioDao = new \App\Model\UsuarioDao();
+$usuarios = $usuarioDao->read();
 ?>
 
 <!doctype html>
@@ -40,10 +43,8 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-
           <li class="nav-item active">
             <?php 
-            session_start();
             if (isset($_SESSION['logado'])):
               if($_SESSION['logado']=='admin'):
               
@@ -59,7 +60,9 @@
           </li>
 
           <li class="nav-item active">
+
             <?php 
+            session_start();
               if (isset($_SESSION['logado'])):
                 echo '<a class="nav-link" href="perfil.php"> <img src="imgs/perfil.png" /> Perfil</a>';
               else:
@@ -75,89 +78,38 @@
 
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
-        <?php echo '<h2>Olá, '.$_SESSION['logado'].'</h2>'; ?>
-
+        <h2>Seus Dados</h2>
       </div>
 
             <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:30px;"><strong>Dados</strong></h5>
+        <p class="card-text"><strong>ID:</strong> <?php echo $_SESSION['id'];?></h5>
+        <p class="card-text"><strong>Nome:</strong> <?php echo $_SESSION['logado']?></p>
+        <p class="card-text"><strong>Sobrenome: </strong><?php echo $_SESSION['sobrenome']?></p>
+        <p class="card-text"><strong>Email: </strong> <?php echo $_SESSION['email']?></p>
+        <p class="card-text"><strong>Senha: </strong><?php echo $_SESSION['senha']?></p>
+
+        <a href="modificarUsuario.php" class="btn btn-danger">Modificar Dados</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="font-size:30px;"><strong>Informações Adicionais</strong></h5>
+        <p class="card-text">Total de pedidos: </p>
+      </div>
+    </div>
+  </div>
+</div>
+            
+
 
                         
-      <?php
-      //Visão ADMIN
-        if($_SESSION['id']==1):
-         echo '<div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Usuários</h5>
-              <p class="card-text">Remover e/ou atualizar usuários</p>
-              <a href="listaUsuarios.php" class="card-link">Listar Usuários</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Produtos</h5>
-              <p class="card-text">Cadastrar, atualizar e/ou excluir produtos</p>
-              <a href="cadastroProduto.php" class="card-link">Cadastrar Produtos</a>
-              <a href="listaProdutos.php" class="card-link">Listar Produtos</a>
-            </div>
-          </div>
-          </div>
-          
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"> Encerrar Sessão </h5>
-              <a href="./controllers/logout.php" class="card-link"> Sair </a>
-            
-
-            </div>
-          </div>
-          </div>';
-
-        else: 
-          //Visão Usuário normal
-          echo
-          '<div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Seus Pedidos</h5>
-              <p class="card-text">Verifique seus pedidos</p>
-              <a href="#" style="color:red" class="card-link">Listar pedidos</a>
-       
-            </div>
-          </div>
-          </div>
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Segurança</h5>
-              <p class="card-text">Altere informações de sua conta</p>
-              <a href="dadosUsuario.php"  style="color:red" class="card-link">Ver seus dados</a>
-            </div>
-          </div>
-          </div>
-
-    
-          
-          <div class="col-md-4 mb-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"> Encerrar Sessão </h5>
-              <a href="./controllers/logout.php" class="card-link"  style="color:red"> Sair </a>
-            
-
-            </div>
-          </div>
-          </div>';
-                 
-          
-        endif;
-
-      ?>
+     
             
 
               
@@ -166,8 +118,12 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2019-2020 Le Vin</p>
-
+        <p class="mb-1">&copy; 2017-2018 Le Vin</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
       </footer>
     </div>
 

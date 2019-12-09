@@ -156,9 +156,9 @@ session_start();
               echo '<h5>R$'.$produto['valor'].'</h5>
             </div>';
             
-            if($_SESSION['id']!=1):
+           
               echo '<button type="submit">Adicionar ao Carrinho </button>';
-            endif;
+          
             
             echo '
             <div class="card-footer">
