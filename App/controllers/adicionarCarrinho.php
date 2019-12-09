@@ -23,8 +23,4 @@ $carrinhoDao->create($carrinho);
 
 header("Location: ../index.php");
 
-
-
-
-
 ?>
