@@ -139,14 +139,19 @@ session_start();
                 <a href="#" style="color:red;">'.$produto['nome'].'</a>
                 </h4>';
 
-                if($produto['tipo'] == "Vinho"):
-                  echo ' <small class="text badge badge-danger text-wrap">'.$produto['tipo'].'</small>';
-                elseif($produto['tipo'] == "Cerveja"):
-                  echo ' <small class="text badge badge-warning text-wrap">'.$produto['tipo'].'</small>';
-                  elseif($produto['tipo'] == "Cachaça"):
-                    echo ' <small class="text badge badge-success text-wrap">'.$produto['tipo'].'</small>';
-                endif;
+                
+          
 
+                switch($produto['tipo']) {
+                  case "Vinho":
+                    $badge = 'badge-danger';
+                  case "Cerveja":
+                    $badge = 'badge-warning';
+                  default:
+                    $badge = 'badge-success';
+                }
+          
+                echo '<small class="text badge $badge text-wrap">'.$produto['tipo'].'</small>';
            
 
 
