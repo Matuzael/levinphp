@@ -86,7 +86,9 @@ $produtosCarrinho = $carrinhoDao->read($_SESSION['id']);
                 echo '<li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
                   <h6 class="my-0">'.$credenciais['nomeProduto'].'</h6>';
-                  echo ' <small class="text badge badge-danger text-wrap"> Remover</small>';
+                  echo ' <small class="text badge badge-danger text-wrap"><a style="color:white;" href="controllers/removerProdutoCarrinho.php?id=';
+                  echo $credenciais['idCarrinho'];
+                  echo '"> Remover</a></small>';
 
                   /*if($credenciais['tipoProduto'] == "Vinho"):
                     echo ' <small class="text badge badge-danger text-wrap">'.$credenciais['tipoProduto'].'</small>';

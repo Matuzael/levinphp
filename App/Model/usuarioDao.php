@@ -60,4 +60,25 @@ class UsuarioDao{
 
     }
 
+    
+    public function readOne($id){
+
+        $sql = 'SELECT * FROM usuarios WHERE idUsuario=?';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1,$id);
+
+        $stmt->execute();
+
+        if($stmt->rowCount()> 0):
+            //Tendo registros no banco, ele retorna um array para $resultados;
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        
+        else:
+            return [];
+        endif;
+
+
+}
 }

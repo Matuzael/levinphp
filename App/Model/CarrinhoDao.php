@@ -54,7 +54,7 @@ class CarrinhoDao{
 
     public function delete($id){
 
-        $sql = 'DELETE FROM carrinho WHERE id=?';
+        $sql = 'DELETE FROM carrinho WHERE idCarrinho=?';
 
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1,$id);
@@ -62,5 +62,18 @@ class CarrinhoDao{
         $stmt->execute();
 
     }
+
+    public function deleteAll($id){
+
+        $sql = 'DELETE FROM carrinho WHERE idUsuario=?';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1,$id);
+
+        $stmt->execute();
+
+    }
+
+
 
 }

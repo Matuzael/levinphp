@@ -63,7 +63,6 @@ $produtos = $produtoDao->read();
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
         <h2>Sua Conta</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
 
             <div class="row">
@@ -92,7 +91,9 @@ foreach($produtos as $credenciais):
        <td scope="row">'. $credenciais["foto"].'</td>
       <td scope="row"> <a href=controllers/removerProduto.php?id=';
       echo $credenciais['id'];
-      echo'> <img src="imgs/remover2.png"/></a> <img src="imgs/atualizar.png"/> </td>
+      echo'> <img src="imgs/remover2.png"/></a> 
+      
+      <a href="atualizarProduto.php?id='.$credenciais['id'].'"> <img src="imgs/atualizar.png"/> </a> </td>
     </tr>';
 
  

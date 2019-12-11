@@ -84,7 +84,6 @@ session_start();
           <a href="#" class="list-group-item active"> Todos </a>
           <a href="#" class="list-group-item ">Vinhos</a>
           <a href="#" class="list-group-item" >Cervejas</a>
-          <a href="#" class="list-group-item" >xxxxxxx</a>
         </strong>
         </div>
 

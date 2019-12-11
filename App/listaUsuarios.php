@@ -91,7 +91,11 @@ foreach($usuarios as $credenciais):
       <td scope="row">'. $credenciais["senha"].'</td>
       <td scope="row"> <a href=controllers/removerUsuario.php?id=';
         echo $credenciais['idUsuario'];
-      echo'> <img src="imgs/remover2.png"/></a> <img src="imgs/atualizar.png"/> </td>
+      echo'> <img src="imgs/remover2.png"/></a> 
+      
+      <a href="atualizarUsuario.php?id=';
+      echo $credenciais['idUsuario'];
+      echo '"> <img src="imgs/atualizar.png"/> </a> </td>
     </tr>';
 
  

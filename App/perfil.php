@@ -88,7 +88,6 @@
               <h5 class="card-title">Usuários</h5>
               <p class="card-text">Remover e/ou atualizar usuários</p>
               <a href="listaUsuarios.php" class="card-link">Listar Usuários</a>
-              <a href="#" class="card-link">Another link</a>
             </div>
           </div>
           </div>
@@ -98,8 +97,8 @@
             <div class="card-body">
               <h5 class="card-title">Produtos</h5>
               <p class="card-text">Cadastrar, atualizar e/ou excluir produtos</p>
-              <a href="cadastroProduto.php" class="card-link">Cadastrar Produtos</a>
-              <a href="listaProdutos.php" class="card-link">Listar Produtos</a>
+              <a href="cadastroProduto.php" class="card-link">Cadastrar </a>
+              <a href="listaProdutos.php" class="card-link">Listar </a>
             </div>
           </div>
           </div>

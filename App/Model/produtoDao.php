@@ -38,14 +38,14 @@ class ProdutoDAO{
     }
 
     public function update(Produto $p){
-        $sql = 'UPDATE produtos set nome=?, foto=?,tipo=?,valor=? WHERE id = ? ';
+        $sql = 'UPDATE produtos set nome=?, foto=?,tipo=?,valor=? WHERE id=? ';
 
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $p->getNome());
         $stmt->bindValue(2, $p->getFoto());
         $stmt->bindValue(3, $p->getTipo());
         $stmt->bindValue(4, $p->getValor());
-        $stmt->bindVaue(5, $p->getId());
+        $stmt->bindValue(5, $p->getId());
 
         $stmt->execute();
     }
@@ -58,6 +58,26 @@ class ProdutoDAO{
         $stmt->bindValue(1,$id);
 
         $stmt->execute();
+
+    }
+
+    public function readOne($id){
+
+        $sql = 'SELECT * FROM produtos';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1,$id);
+
+        $stmt->execute();
+
+        if($stmt->rowCount()> 0):
+            //Tendo registros no banco, ele retorna um array para $resultados;
+            $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        
+        else:
+            return [];
+        endif;
 
     }
 

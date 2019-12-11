@@ -76,6 +76,10 @@ foreach($produtosCarrinho as $produto):
     $produtoVendidoDao->create($produtoVendido);
 endforeach;
 
+//Limpar carrinho
+$carrinhoDao->deleteAll($_SESSION['id']);
+
+
 header("Location: ../Perfil.php");
 
 ?>

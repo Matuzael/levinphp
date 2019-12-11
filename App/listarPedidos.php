@@ -1,7 +1,7 @@
 <?php
 require_once "../vendor/autoload.php";
-$usuarioDao = new \App\Model\UsuarioDao();
-$usuarios = $usuarioDao->read();
+$produtoDao = new \App\Model\ProdutoDao();
+$produtos = $produtoDao->read();
 ?>
 
 <!doctype html>
@@ -44,22 +44,6 @@ $usuarios = $usuarioDao->read();
             </a>
           </li>
           <li class="nav-item active">
-            <?php 
-            if (isset($_SESSION['logado'])):
-              if($_SESSION['logado']=='admin'):
-              
-              else:
-                echo '<a class="nav-link " href="checkout.php"> <img src="imgs/checkout.png" />Carrinho </a>';
-              endif;
-              
-            else:
-              
-              echo '<a class="nav-link " href="login.php"> <img src="imgs/checkout.png" />Carrinho </a>';
-            endif;
-            ?>
-          </li>
-
-          <li class="nav-item active">
 
             <?php 
             session_start();
@@ -78,35 +62,48 @@ $usuarios = $usuarioDao->read();
 
       <div class="py-5 text-center" style="margin-top:50px">
         <img class="d-block mx-auto mb-4" src="imgs/wine.png" alt="" width="72" height="72">
-        <h2>Seus Dados</h2>
+        <h2>Sua Conta</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
 
             <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title" style="font-size:30px;"><strong>Dados</strong></h5>
-        <p class="card-text"><strong>ID:</strong> <?php echo $_SESSION['id'];?></h5>
-        <p class="card-text"><strong>Nome:</strong> <?php echo $_SESSION['logado']?></p>
-        <p class="card-text"><strong>Sobrenome: </strong><?php echo $_SESSION['sobrenome']?></p>
-        <p class="card-text"><strong>Email: </strong> <?php echo $_SESSION['email']?></p>
-        <p class="card-text"><strong>Senha: </strong><?php echo $_SESSION['senha']?></p>
-
-        <a href="#" class="btn btn-danger">Modificar Dados</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title" style="font-size:30px;"><strong>Informações Adicionais</strong></h5>
-        <p class="card-text">Total de pedidos: </p>
-      </div>
-    </div>
-  </div>
-</div>
             
 
+<table class="table table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<?php 
+foreach($produtos as $credenciais):
+    echo '<tr>
+      <th scope="row">'.$credenciais["id"].'</th>
+      <td scope="row">'. $credenciais["nome"].'</td>
+      <td scope="row">'. $credenciais["tipo"].'</td>
+      <td scope="row">'. $credenciais["valor"].'</td>
+       <td scope="row">'. $credenciais["foto"].'</td>
+      <td scope="row"> <a href=controllers/removerProduto.php?id=';
+      echo $credenciais['id'];
+      echo'> <img src="imgs/remover2.png"/></a> <img src="imgs/atualizar.png"/> </td>
+    </tr>';
+
+ 
+    
+endforeach;
+?>
+
+    
+ 
+  </tbody>
+</table>
 
                         
      
